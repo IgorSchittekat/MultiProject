@@ -31,12 +31,10 @@ do
 	echo "github : $github"
 
   git clone "$github"
-  mv $project/$src tmp
-  mv $project/$tests/* tests
+  mv $project/$src flair/$src
+  mv $project/$tests/* flair/tests
   pip3 install -r ./$project/requirements.txt
   pip3 install tensorflow_text
-  rm -rf $project
-  mv tmp $src
 
   SCRIPTPATH="$( cd -- "$(dirname "$src")/$src" >/dev/null 2>&1 ; pwd -P )"
   echo "Scriot"
