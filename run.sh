@@ -38,7 +38,8 @@ do
   pip3 install -r ./$project/requirements.txt
   pip3 install tensorflow_text
 
-  SCRIPTPATH="$( cd -- "$(dirname "flair/$src")/$src" >/dev/null 2>&1 ; pwd -P )"
+  cd flair
+  SCRIPTPATH="$( cd -- "$(dirname "$src")/$src" >/dev/null 2>&1 ; pwd -P )"
   echo "Scriot"
   echo $SCRIPTPATH
   PYTHONPATH=$SCRIPTPATH coverage run --source=flair -m pytest flair
