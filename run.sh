@@ -31,8 +31,10 @@ do
 	echo "github : $github"
 
   git clone "$github"
+  ls
   mv $project/$src flair/$src
   mv $project/$tests/* flair/tests
+  ls flair
   pip3 install -r ./$project/requirements.txt
   pip3 install tensorflow_text
 
