@@ -31,12 +31,10 @@ do
 	echo "github : $github"
 
   git clone "$github"
-  cat .
   mv $project/$src flair/$src
   mv $project/$tests/* flair/tests
-  cat flair
-  pip3 install $(grep -ivE "flair" ./$project/requirements.txt)
-  pip3 install tensorflow_text
+  pip3 install .
+  pip3 uninstall flair
 
   cd flair
   SCRIPTPATH="$( cd -- "$(dirname "$src")" >/dev/null 2>&1 ; pwd -P )"
