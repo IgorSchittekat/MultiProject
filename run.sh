@@ -35,7 +35,7 @@ do
   mv $project/$src flair/$src
   mv $project/$tests/* flair/tests
   cat flair
-  pip3 install -r ./$project/requirements.txt
+  pip3 install $(grep -ivE "flair" ./$project/requirements.txt)
   pip3 install tensorflow_text
 
   cd flair
