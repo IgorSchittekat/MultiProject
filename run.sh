@@ -42,7 +42,7 @@ do
   SCRIPTPATH="$( cd -- "$(dirname "$src")/$src" >/dev/null 2>&1 ; pwd -P )"
   echo "Scriot"
   echo $SCRIPTPATH
-  PYTHONPATH=$SCRIPTPATH coverage run --source=flair -m pytest flair
+  PYTHONPATH=$SCRIPTPATH coverage run --source=flair -m pytest .
   coverage html
 #   mv ./htmlcov ./htmlcov_$project
 
