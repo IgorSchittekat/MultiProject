@@ -33,7 +33,7 @@ do
   git clone "$github"
   mv $project/$src flair/$src
   mv $project/$tests/* flair/tests
-  pip3 install .
+  pip3 install $project
   pip3 uninstall flair
 
   cd flair
