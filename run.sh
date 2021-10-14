@@ -44,7 +44,8 @@ do
   echo $SCRIPTPATH
   PYTHONPATH=$SCRIPTPATH coverage run --source=flair -m pytest .
   coverage html
-#   mv ./htmlcov ./htmlcov_$project
+  cd ..
+  mv flair/htmlcov ./htmlcov
 
 done < $INPUT
 IFS=$OLDIFS
