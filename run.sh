@@ -46,9 +46,7 @@ cd flair
 SCRIPTPATH="$( cd -- "$(dirname "$src")" >/dev/null 2>&1 ; pwd -P )"
 echo "Scriot"
 echo $SCRIPTPATH
-PYTHONPATH=$SCRIPTPATH coverage run --parallel-mode --source=flair -m pytest .
-PYTHONPATH=$SCRIPTPATH coverage run --parallel-mode --source=flair -m unittest .
-coverage combine
+PYTHONPATH=$SCRIPTPATH coverage run --parallel-mode --source=flair -m pytest -m unittest .
 coverage html
 cd ..
 
