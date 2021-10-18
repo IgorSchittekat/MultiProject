@@ -34,7 +34,7 @@ do
   mv $project/$src flair/$src
   mv $project/$tests/* flair/tests
   pip3 install $project
-  pip3 install -m $project/requirements.txt
+  pip3 install -r $project/requirements.txt
 
 done < $INPUT
 IFS=$OLDIFS
