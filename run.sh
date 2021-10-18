@@ -39,6 +39,8 @@ do
 done < $INPUT
 IFS=$OLDIFS
 
+pip3 install tensorflow_text
+
 pip3 uninstall flair
 cd flair
 SCRIPTPATH="$( cd -- "$(dirname "$src")" >/dev/null 2>&1 ; pwd -P )"
