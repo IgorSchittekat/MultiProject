@@ -32,7 +32,7 @@ do
 
   git clone "$github"
   mv $project/$src flair/$src
-  mv $project/$tests/* flair/tests/$src
+  mv $project/$tests flair/tests/$src
   pip3 install $project
   pip3 install -r $project/requirements.txt
 
