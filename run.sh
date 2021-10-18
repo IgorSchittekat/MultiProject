@@ -34,17 +34,17 @@ do
   mv $project/$src flair/$src
   mv $project/$tests/* flair/tests
   pip3 install $project
-  pip3 uninstall flair
-
-  cd flair
-  SCRIPTPATH="$( cd -- "$(dirname "$src")" >/dev/null 2>&1 ; pwd -P )"
-  echo "Scriot"
-  echo $SCRIPTPATH
-  PYTHONPATH=$SCRIPTPATH coverage run --source=flair -m pytest .
-  coverage html
-  cd ..
 
 done < $INPUT
 IFS=$OLDIFS
+
+pip3 uninstall flair
+cd flair
+SCRIPTPATH="$( cd -- "$(dirname "$src")" >/dev/null 2>&1 ; pwd -P )"
+echo "Scriot"
+echo $SCRIPTPATH
+PYTHONPATH=$SCRIPTPATH coverage run --source=flair -m pytest .
+coverage html
+cd ..
 
 echo "Done"
