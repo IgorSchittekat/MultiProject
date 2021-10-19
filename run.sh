@@ -43,6 +43,8 @@ do
 	echo $SCRIPTPATH
 	PYTHONPATH=$SCRIPTPATH coverage run --parallel-mode --source=flair -m pytest .
 	coverage html
+	mv htmlcov ../flair/htmlcov/$project
+	
 	cd ..
 
 done < $INPUT
