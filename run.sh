@@ -21,6 +21,7 @@ pip3 install -r flair/requirements.txt
 echo "Hallo"
 INPUT=users.txt
 OLDIFS=$IFS
+mkdir flair/coverage
 
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
 while IFS=, read -r project src tests github;
@@ -42,14 +43,15 @@ do
 	echo "Scriot"
 	echo $SCRIPTPATH
 	PYTHONPATH=$SCRIPTPATH coverage run --parallel-mode --source=flair -m pytest .
-	coverage html
-	mv htmlcov ../flair/htmlcov/$project
+	mv .coverage* ../flair/coverage/
 	
 	cd ..
 
 done < $INPUT
 IFS=$OLDIFS
 
-
+cd flair/coverage
+coverage combine
+coverage html
 
 echo "Done"
