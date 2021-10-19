@@ -31,23 +31,23 @@ do
 	echo "github : $github"
 
   git clone "$github"
-  mv $project/$src flair/$src
-  mv $project/$tests flair/tests/$src
+  cp -r flair/flair $project
   pip3 install $project
   pip3 install -r $project/requirements.txt
+  pip3 install tensorflow_text
+
+	pip3 uninstall flair
+	cd $project
+	SCRIPTPATH="$( cd -- "$(dirname "$src")" >/dev/null 2>&1 ; pwd -P )"
+	echo "Scriot"
+	echo $SCRIPTPATH
+	PYTHONPATH=$SCRIPTPATH coverage run --parallel-mode --source=flair -m pytest .
+	coverage html
+	cd ..
 
 done < $INPUT
 IFS=$OLDIFS
 
-pip3 install tensorflow_text
 
-pip3 uninstall flair
-cd flair
-SCRIPTPATH="$( cd -- "$(dirname "$src")" >/dev/null 2>&1 ; pwd -P )"
-echo "Scriot"
-echo $SCRIPTPATH
-PYTHONPATH=$SCRIPTPATH coverage run --parallel-mode --source=flair -m pytest .
-coverage html
-cd ..
 
 echo "Done"
