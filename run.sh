@@ -38,8 +38,9 @@ do
   pip3 install tensorflow_text
 
 	pip3 uninstall flair
-	cd $project
-	SCRIPTPATH="$( cd -- "$(dirname "$src")" >/dev/null 2>&1 ; pwd -P )"
+	cd flair
+	SCRIPTPATH="$( cd -- "$(dirname "flair")" >/dev/null 2>&1 ; pwd -P )"
+	cd ../$project
 	echo "Scriot"
 	echo $SCRIPTPATH
 	PYTHONPATH=$SCRIPTPATH coverage run --parallel-mode --source=flair -m pytest .
